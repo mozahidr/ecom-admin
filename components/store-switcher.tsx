@@ -117,15 +117,6 @@ export default function StoreSwitcher({
           </Command>
         </PopoverContent>
       </Popover>
-      <div
-        className="px-4 py-2 cursor-pointer text-xs"
-        onClick={() => {
-          setOpen(false);
-          storeModal.onOpen();
-        }}
-      >
-        Create Store 2
-      </div>
     </>
   );
 }

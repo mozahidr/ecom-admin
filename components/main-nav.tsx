@@ -25,7 +25,7 @@ export function MainNav({
     },
     {
       href: `/${params.storeId}/categories`,
-      label: "Category",
+      label: "Categories",
       active: pathname === `/${params.storeId}/categories}`,
     },
     {
