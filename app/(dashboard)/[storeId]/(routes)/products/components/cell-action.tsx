@@ -8,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
-import { CategoryColumn } from "./columns";
+import { ProductColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import toast from "react-hot-toast";
@@ -17,7 +17,7 @@ import { useState } from "react";
 import { AlertModal } from "@/components/modals/alert-modal";
 
 interface CellActionProps {
-  data: CategoryColumn;
+  data: ProductColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -29,19 +29,19 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("Category Id copied to clipboard");
+    toast.success("Product Id copied to clipboard");
   };
 
   const onDelete = async () => {
     try {
       setLoading(true);
       await axios.delete(
-        `/api/${params.storeId}/categories/${data.id}`
+        `/api/${params.storeId}/products/${data.id}`
       );
       router.refresh();
-      toast.success("Category deleted successfully");
+      toast.success("Product deleted successfully");
     } catch (error) {
-      toast.error("Make sure you removed all products using this categories first");
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
       setOpen(false);
@@ -75,7 +75,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             </div>
             <div
               onClick={() =>
-                router.push(`/${params.storeId}/categories/${data.id}`)
+                router.push(`/${params.storeId}/products/${data.id}`)
               }
               className="flex items-center cursor-pointer"
             >

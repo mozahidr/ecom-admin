@@ -25,8 +25,28 @@ export function MainNav({
     },
     {
       href: `/${params.storeId}/categories`,
-      label: "Category",
+      label: "Categories",
       active: pathname === `/${params.storeId}/categories}`,
+    },
+    {
+      href: `/${params.storeId}/sizes`,
+      label: "Sizes",
+      active: pathname === `/${params.storeId}/sizes}`,
+    },
+    {
+      href: `/${params.storeId}/colors`,
+      label: "Colors",
+      active: pathname === `/${params.storeId}/colors}`,
+    },
+    {
+      href: `/${params.storeId}/products`,
+      label: "Products",
+      active: pathname === `/${params.storeId}/products}`,
+    },
+    {
+      href: `/${params.storeId}/orders`,
+      label: "Orders",
+      active: pathname === `/${params.storeId}/orders}`,
     },
     {
       href: `/${params.storeId}/settings`,
@@ -47,7 +67,7 @@ export function MainNav({
           href={route.href}
           key={route.href}
           className={cn(
-            "tex-sm font-medium transition-colors hover:text-primary",
+            "text-sm font-medium transition-colors hover:text-primary",
             route.active
               ? "text-black dark:text-white"
               : "text-muted-foreground"
